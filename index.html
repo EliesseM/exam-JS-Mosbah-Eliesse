@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animaux</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Catalogue d'Animaux</h1>
+
+    <h2>Ajouter un Animal</h2>
+    <form id="animalForm">
+      <input type="text" id="name" placeholder="Nom" required />
+      <input type="text" id="description" placeholder="Description" required />
+      <select id="category" required>
+        <option value="">Choisir une catégorie</option>
+        <option value="terrestre">Terrestre</option>
+        <option value="aquatique">Aquatique</option>
+        <option value="volant">Volant</option>
+        <option value="extra-terrestre">Extra-Terrestre</option>
+      </select>
+      <input type="url" id="image" placeholder="Lien vers l'image" required />
+      <button type="submit">Ajouter</button>
+      <p id="error" style="color: red"></p>
+    </form>
+
+    <div>
+      <label for="filter">Filtrer par catégorie :</label>
+      <select id="filter">
+        <option value="all">Tous</option>
+        <option value="terrestre">Terrestre</option>
+        <option value="aquatique">Aquatique</option>
+        <option value="volant">Volant</option>
+      </select>
+    </div>
+
+    <div id="animals"></div>
+
+    <button id="reset">Réinitialiser les animaux</button>
+
+    <script src="script.js"></script>
+  </body>
+</html>
