@@ -68,18 +68,23 @@ document.getElementById("animalForm").addEventListener("submit", function (e) {
 
   const nom = document.getElementById("name").value.trim();
   const description = document.getElementById("description").value.trim();
-  const categorie = document
-    .getElementById("category")
-    .value.trim()
-    .toLowerCase();
+  const categorieElement = document.getElementById("category");
+  const categorie = categorieElement.value.trim().toLowerCase();
   const image = document.getElementById("image").value.trim();
   const error = document.getElementById("error");
 
-  if (!["terrestre", "aquatique", "volant"].includes(categorie)) {
+  const categoriesValides = ["terrestre", "aquatique", "volant"];
+
+  if (!categoriesValides.includes(categorie)) {
     error.textContent =
-      "Catégorie inconnue. Utilisez terrestre, aquatique ou volant.";
+      "Catégorie inconnue. Utilisez uniquement : terrestre, aquatique ou volant.";
+    error.style.color = "red";
+    categorieElement.style.border = "2px solid red";
     return;
   }
+
+  categorieElement.style.border = "";
+  error.textContent = "";
 
   const nouvelAnimal = new Animal(nom, description, categorie, image);
   animaux.push(nouvelAnimal);
